@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #3498db;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.form-section,
+.products-section {
+    flex: 1;
+    min-width: 300px; /* Evita que as seções se tornem muito estreitas em telas pequenas */
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+.products-section{
+    width: 410px;
+    max-width: 100%;
+}
+
+#product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input {
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2c3e50;
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.lista-produto-single {
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lista-produto-single h3 {
+    flex: 2;
+    padding: 0 20px;
+    word-wrap: break-word;
+    font-size: 18px;
+}
+
+.quantidade-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.quantidade-container span {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.btn-menos,
+.btn-mais {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.quantidade-itens{
+    margin: 0 5px;
+}
+
+.btn-menos:hover,
+.btn-mais:hover {
+    background-color: #2c3e50;
+}
+
+.price-produto {
+    text-align: right;
+    font-size: 18px;
+    flex: 1;
+}
+
+.price-produto > span {
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.total-section {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.total-section h2 {
+    font-size: 20px;
+}
+
+.valor-total {
+    font-size: 24px;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+button#btn-limpar {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #e74c3c;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button#btn-limpar:hover {
+    background-color: #c0392b;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .form-section,
+    .products-section {
+        flex: 1;
+        min-width: auto;
+    }
+}
+
+.lista-cadastro input[type=text],
+.lista-cadastro input[type=number],
+#btn-cadastrar,
+.btn-limpar {
+    width: 100%; /* Faz com que os elementos ocupem 100% da largura em telas pequenas */
+}
+
+.lista-cadastro {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    gap: 10px; /* Adicionando espaçamento entre os elementos */
+}

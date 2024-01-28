@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Lista de SuperMercado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>App Lista de SuperMercado</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form id="product-form">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome_produto" placeholder="Digite o nome do produto" required>
+
+                <label for="price">Preço:</label>
+                <input type="number" id="price" step="0.01" placeholder="0.00" title="This should be a number with up to 2 decimal places" required>
+
+                <button type="button" id="btn-cadastrar" onclick="cadastrarProduto()">Cadastrar</button>
+            </form>
+        </section>
+
+        <section class="products-section">
+            <div id="product-list" class="product-list"></div>
+
+            <div class="total-section">
+                <h2>Total:</h2>
+                <h1 id="valor-total">R$0.00</h1> <!-- Corrigindo o ID do total -->
+            </div>
+
+            <button type="button" class="btn-limpar" onclick="limparCarrinho()">Limpar</button>
+        </section>
+    </main>
+
+    <script src="supermercado.js"></script>
+</body>
+
+</html>
