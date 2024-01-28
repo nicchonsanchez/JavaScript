@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 - O que são variáveis e como usar</title>
+</head>
+<body>
+    <script>
+        /*
+            As variáveis são vaalores que variam. Ex: a variável X é igual a 10, porém se eu solicitar que mude de valor pode passar a ser outro, como X=20, X="Nicchon", e etc.
+
+            Para declarar uma variável usamos o sintaxe 'var', dou espaço e digito o nome da variável, como 'nome', dai já se pode finalizar com o ponto e vírgula.
+            Para agregar um valor à variável criada pode-se fazer da seguinte maneira 'nome = "Nicchon";'. Assim a variável nome passa a ter o valor Nicchon, como abaixo.
+        */
+
+        var nome;
+        nome = "Nicchon";
+
+        /* Para visualizar o valor de uma variável no sonsole.log ou alert digitamos o nome da variável sem as aspas, como abaixo, pois se usarmos aspas aparecerá o nome da variável invés do vaalor */
+        console.log(nome);
+        alert(nome);
+
+        /* Dá para solicitar que apareça mais de uma informação num console.log ou aleft usando o +, como abaixo*/
+        console.log("Olá "+nome);
+        alert("Olá "+nome+"!");
+
+        /*
+            Existem 3 tipos de variáveis: String, number e booleana.
+            String = nomes, textos ou outros escritos
+            Number = números: 1, 2, 3, 10.89, 5.2 ...
+            Booleana = true ou false (verdadeiro ou falso)
+
+            Exemplos abaixo:
+        */
+
+        var nome_pessoa,idade,casado;
+
+        nome_pessoa = "Nicchon"; // string
+        idade = 22; // number
+        casado = false; // booleana
+
+        alert("Olá "+nome_pessoa+"!");
+        alert("Sua idade é de "+idade+" anos");
+        if(casado == true){
+            alert("E é casado");
+        } else if (casado == false) {
+            alert("E não é casado");
+        } else {
+            alert("E não informou se é casado");
+        }
+
+        // Acima usei condição if, já sei oq é porque já havia feito aulas de JS em outro curso da Danki Code, mas será explicado na aula 06
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        .block{
+            transition: 1s;
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            margin-left: 0px;
+            margin-bottom: 10px;
+        }
+
+        .animation{
+            margin-left: 100px;
+            background-color: lightblue;
+            border-radius: 30px;
+            transform: rotate(90deg);
+        }
+
+        button{
+            padding: 10px;
+            border: 0;
+            border-radius: 4px;
+            background-color: lightblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="block" id="block1"></div>
+
+    <button>Clique aqui!</button>
+    <div class="block" id="block2"></div>
+
+
+
+    <script>
+        // Animar com tempo
+        var block1 = document.querySelector('div#block1');
+
+        setTimeout(()=>{
+            block1.classList.add('animation');
+        },1000)
+
+
+
+        // Animar com click
+        var block2 = document.querySelector('div#block2');
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', ()=>{
+            block2.classList.add('animation');
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientação a Objetos</title>
+</head>
+<body>
+    <script>
+
+        class Animal{
+            // O constructor é o que a gente utiliza para colocar os parâmetros, tipo na função onde temos os parênteses function(aqui colocamos parâmetros){aqui utilizamos eles}
+            constructor(nome, idade){
+                this.nome = nome;
+                this.idade = idade;
+            }
+
+            // Aqui estamos criando uma função
+            printNome(){
+                console.log(this.nome);
+            }
+            printIdade(){
+                console.log(this.idade);
+            }
+        }
+
+        animal1 = new Animal('cachorro','5 anos');
+        animal1.printNome();
+        console.log("---------------");
+
+        // Aqui estamos criando uma classe chamada Cachorro e estamos importando o conteúdo existente na classe Animal. Logo, agora Cachorro tem todos os atributos e funções de Animal
+        class Cachorro extends Animal{
+            constructor(nome, idade, latido){
+                super(nome, idade); // O super está puxando os atributos 'nome' e 'idade' da classe pai, que é a classe Animal
+                this.latido = latido; // Nem todo animal late, isso é algo exclusivo do cachorro, por isso somente ele tem essa atribuição
+            }
+
+            printLatir(){
+                console.log(this.latido);
+            }
+        }
+
+        console.log("-------Sessão Cachorros--------");
+        cachorro1 = new Cachorro('Spike', '3 anos', 'Auau!');
+        cachorro2 = new Cachorro('Mike', '2 anos', 'Aauuuuu!');
+        cachorro1.printNome();
+        cachorro1.printLatir();
+        console.log("---------------");
+
+        cachorro2.printNome();
+        cachorro2.printLatir();
+        console.log("---------------");
+
+
+        class Gato extends Animal{
+            constructor(nome, idade, miado){
+                super(nome, idade); // Puxando os atributos da classe Animal
+                this.miado = miado; // Somente o gato mia, logo 'miado' é um atributo usado somente na classe gato
+            }
+
+            printMiar(){
+                console.log(this.miado);
+            }
+        }
+
+        console.log("-------Sessão Gatos--------");
+        gato1 = new Gato('Tom', '4 anos', 'Miau!');
+        gato2 = new Gato('Sturt', '2 anos', 'Minnhaauuu!');
+        gato1.printNome();
+        gato1.printMiar();
+        console.log("---------------");
+
+        gato2.printNome();
+        gato2.printMiar();
+        console.log("---------------");
+
+
+    </script>
+</body>
+</html>

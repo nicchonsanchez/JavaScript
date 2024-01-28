@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 - Condições e operadores</title>
+</head>
+<body>
+    <script>
+
+        var nome = 'Nicchon';
+        var adm = "Nicchon";
+        var idade = 23;
+        var maioridade = 18;
+
+        /*
+            == compara os valores
+            === compara se além de o valor ser igual o tipo de variável tbm seja. Ex se ambos são string.
+            > maior que
+            < menor que
+            >= maior ou igual à
+            <= menor ou igual à
+            != diferente de valor e tipo
+            !== tipo de variável diferente, possivelmtente o valor seja o mesmo
+        */
+
+        if(nome == adm){
+            alert("Oi adm!")
+        } else {
+            alert("Oi "+nome);
+        }
+
+        if(idade >= maioridade){
+            alert('Você é maior de idade');
+        } else if (idade < maioridade){
+            alert('Você é menor de idade');
+        } else {
+            alert("Erro! Possívelmente a idade não foi informada");
+        }
+
+        var x,y;
+        x = 1; // Number
+        y = "1" // String
+
+        if(x === y){
+            alert("Mesmo valor e mesmo tipo")
+        } else if(x == y){
+            alert("Mesmo valor e tipo diferente")
+        } else {
+            alert("Valor e tipo diferentes")
+        }
+
+        var num1, num2;
+        num1 = 10;
+        num2 = 9;
+
+        if(num1 != num2){
+            alert("Valor e tipo diferente")
+        } else {
+            alert("É igual")
+        }
+        if(num1 !== num2){
+            alert("Tipo, valor ou tipo e valor diferentes")
+        }
+        
+
+    </script>
+</body>
+</html>

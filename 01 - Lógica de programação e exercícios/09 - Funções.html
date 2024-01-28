@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09 - Funções</title>
+
+    <style>
+        body{
+            text-align: center;
+        }
+
+        div.btn{
+
+            transition: 0.3s;
+            cursor: pointer;
+            margin: 20px auto;
+            padding: 10px 15px;
+            display: inline-block;
+            background: rgb(37, 37, 37);
+            border-bottom: 2px solid black;
+            color: white;
+        }
+        div.btn:hover{
+            background: rgb(181, 0, 0);
+            border-bottom: 2px solid rgb(95, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="btn" onclick="realizarConta()">Chamar a função realizarConta()</div>
+    <br>
+    <div class="btn" onclick="cumprimentar('Nick')">Chamar a função cumprimentar('Nick')</div>
+    <div class="btn" onclick="cumprimentar('Nicchon')">Chamar a função cumprimentar('Nicchon')</div>
+    <div class="btn" onclick="cumprimentar('Man')">Chamar a função cumprimentar('Man')</div>
+    <br>
+    <div class="btn" onclick="nomeIdade('Nick',21)">Chamar a função nomeIdade('Nick',21)</div>
+    <div class="btn" onclick="nomeIdade('Nicchon',22)">Chamar a função nomeIdade('Nicchon',22)</div>
+    <div class="btn" onclick="nomeIdade('Man',30)">Chamar a função nomeIdade('Man',30)</div>
+
+    <script>
+
+        // Funções nativas são aquelas que já existem no JS, que não foram criadas por você. Ex: console.log
+
+        // Criando uma função nova...
+        function realizarConta(){
+            alert("Minha função");
+        }
+
+        realizarConta(); // É preciso chamar a função para poder acontecer o que estiver dentro dela. Seja chamando pelo próprio JS ou por alguma ação dentro da página, como num botão HTML.
+
+
+
+        // É possível deixar parâmetro composto por variáveis na função. Ex:
+        function cumprimentar(nome){
+            alert("Olá "+nome+"!");
+        }
+
+        cumprimentar("Nicchon"); // Nicchon fica sendo o referente ao nome
+
+
+
+        // É possível colocar mais de um parâmetro. Ex:
+        function nomeIdade(nome,idade){
+            alert("Olá "+nome+"\nSua idade é "+idade);
+        }
+
+        nomeIdade("Nicchon",22); // Nicchon fica sendo o referente ao nome, 22 a idade
+
+
+
+        // Tem como declarar uma variável como função
+        var funct = function(){
+            alert("Varável funct")
+        }
+
+        funct();
+
+
+
+        // Vamos usar uma função para somar 2 valores;
+        function somar(num1,num2){
+            return num1+num2;
+        }
+
+        var somando = somar(20,40);
+        alert(somando);
+
+
+
+        // Colocando função dentro e objeto:
+        var pessoa = {'nome':'Nicchon','idade':22,'lerInfo':function(){
+            // this é usado para se referir ao objeto que se está dentro. Ex this.nome é pra chamar o .nome de onde se está dentro. Se estou dentro de pessoa então this.nome é o mesmo que pessoa.nome
+            alert('O nome da pessoa é '+this.nome+"\nA idade é "+this.idade);
+        }}
+
+        pessoa.lerInfo();
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 - Utilizando typeof</title>
+</head>
+<body>
+    <script>
+        // typeof é uma função nativa que nos mostra o tipo de variável que é a solicitada
+
+        var pessoa = {}; // Objeto
+        var nomes = []; // Array
+        var nome = "Nicchon"; // String
+        var idade = 22; // Number
+        var casado = false; // Boolean
+
+        alert(typeof(pessoa));
+        alert(typeof(nomes)); // Arrays também são identificados como objetos pois ambos se comportam da mesma maneira.
+        alert(typeof(nome));
+        alert(typeof(idade));
+        alert(typeof(casado));
+    </script>
+</body>
+</html>

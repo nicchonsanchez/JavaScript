@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 - Operações matemáticas</title>
+</head>
+<body>
+    <!--
+        Para chamaar uns arquivo de JS separado do HTML use a tag script com o atributo src e o diretório do arquivo. Ex:
+        <script src="script.js"></script>
+    -->
+
+    <script>
+
+        // Operações matemáticas:
+        var idade,data_nascimento,ano_atual;
+
+        data_nascimento = 2000;
+        ano_atual = 2023;
+        idade = ano_atual - data_nascimento;
+
+        alert(idade);
+
+        // Informação aleatória. Para poder quebrar linha durante uma declaração de alert ou console.log, use o + e divida o texto com as aspas. Ex:
+        alert(
+            "Sua idade é de "+
+            idade+
+            " anos"
+        )
+
+        /*
+            Soma +
+            Subtração -
+            Multiplicação *
+            Divisão /
+            Resto da divisão (em caso de divisões onde ocorrem sobra) %
+            Exponencial **
+        */
+
+        /*
+            Atribuição  x = y
+            Atribuição de adição	x += y  ou	x = x + y
+            Atribuição de subtração	x -= y  ou	x = x - y
+            Atribuição de multiplicação	x *= y  ou	x = x * y
+            Atribuição de divisão	x /= y  ou	x = x / y
+            Atribuição de resto	x %= y  ou	x = x % y
+            Atribuição exponencial	x **= y ou	x = x ** y
+            Atribuição bit-a-bit por deslocamento á esquerda	x <<= y ou	x = x << y
+            Atribuição bit-a-bit por deslocamento á direita	x >>= y ou	x = x >> y
+            Atribuiçãode bit-a-bit deslocamento á direita não assinado	x >>>= y    ou  x = x >>> y
+            Atribuição AND bit-a-bit	x &= y  ou	x = x & y
+            Atribuição XOR bit-a-bit	x ^= y  ou	x = x ^ y
+            Atribuição OR bit-a-bit	x |= y  ou	x = x | y
+        */
+
+        var x = 1;
+        alert(x);
+
+        x += 1;
+        alert(x);
+
+        x = x + 1;
+        alert(x);
+
+        x = x * 2;
+        alert(x);
+
+        x = x << 1;
+        alert(x);
+
+        alert(10 % 3); // Resto de 10 dividido por 3. 10/3 é 9 e sobra 1, logo o retorno é de 1
+        alert(10 / 3); // Usando a divisão ele irá considerar a fração dos números
+
+    </script>
+</body>
+</html>

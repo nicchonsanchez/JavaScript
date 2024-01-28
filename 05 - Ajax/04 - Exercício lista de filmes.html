@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            padding: 30px 2%;
+            max-width: 1240px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #lista-filmes {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #lista-filmes li {
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        #lista-filmes li:hover {
+            transform: translateY(-5px);
+        }
+
+        li i {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            color: #555;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .description {
+            display: none;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        #lista-filmes li:hover i {
+            transform: rotate(180deg);
+            color: #333;
+        }
+
+        #lista-filmes li:hover .description {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+
+            <h2>Lista de filmes mais assistidos</h2>
+            <ul id="lista-filmes">
+                <!--
+                Será preenchido com o DOM do JS
+                -->
+            
+            </ul>
+            <!--/#lista-filmes-->
+
+        </div>
+        <!--/.container-->
+    </section>
+
+    <script>
+
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=506fadb0256c13349acc05dabebf9604&language=en-US&page=1',{
+            method: 'GET'
+        }).then(response=> response.json()).then(function(json){
+
+            var containerArticle = document.querySelector('#lista-filmes');
+
+            json.results.map(function(val){
+                containerArticle.innerHTML += `
+
+                    <li class="tituloFilme" style="cursor: pointer;">
+                        ${val.title} <i class='fas fa-chevron-down'></i>
+                        <div class="description">${val.overview}</div>
+                    </li>
+
+                `;
+            })
+
+        })
+
+    </script>
+</body>
+</html>

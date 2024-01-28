@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 - Switch e case</title>
+</head>
+<body>
+    <script>
+        // O Switch serve para fazer várias verificações ao mesmo tempo. É como usar um if com vários else if, a diferença é que só verifica se o valor é exatamente o apresentado no case.
+        // Não consegue verificar se número tal é maior/menor/maior ou igual/menor ou igual à tal outro.
+        // Exemplo de switch:
+        var nome = "Nicchon";
+
+        switch(nome){
+            case "Nicchon":
+                alert("Está certo");
+            break;
+
+            case "Nick":
+                alert("É apelido");
+            break;
+
+            case "Alexandre":
+                alert("Encarregado setor 1 kk");
+            break;
+
+            case "Thiago":
+                alert("Gay ainda não passou o preço dos cosméticos kkk");
+            break;
+        }
+
+
+        // Criei uma função que faz essa verificação com o Switch.
+        //Và no console e troque o valor da variàvel de acordo com os nomes abaixo e execute o verificar();
+
+        var verificar = function(){
+            switch(nome){
+            case "Nicchon":
+                alert("Está certo");
+            break;
+
+            case "Nick":
+                alert("É apelido");
+            break;
+
+            case "Alexandre":
+                alert("Encarregado setor 1 kk");
+            break;
+
+            case "Thiago":
+                alert("Gay ainda não passou o preço dos cosméticos kkk");
+            break;
+        }
+        }
+        
+    </script>
+</body>
+</html>

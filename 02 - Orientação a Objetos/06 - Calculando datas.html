@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*
+            Para mais formatos acesse os sites
+            https://www.w3schools.com/js/js_dates.asp
+            https://www.w3schools.com/js/js_date_formats.asp
+            https://www.w3schools.com/js/js_date_methods.asp
+            https://www.w3schools.com/js/js_date_methods_set.asp
+        */
+
+        data = new Date();
+
+        nascimento = new Date('12/27/2000');
+        hoje = new Date();
+
+        
+        console.log(nascimento);
+        console.log(hoje);
+
+        idade = hoje - nascimento;
+        console.log(idade); // Retorno em milissegundos
+
+        idadeAnos = idade/(1000 * 60 * 60 * 24 * 365.25)
+        console.log(idadeAnos); // Retorno em anos
+
+        idadeAnosArredondado = Math.floor(idadeAnos); // Arredondando para baixo
+        restoAnos = idadeAnos - idadeAnosArredondado;
+        //console.log(restoAnos);
+
+        idadeMeses = restoAnos * 365.25 / 30.5;
+        idadeMesesArredondado = Math.floor(idadeMeses);
+        restoMeses = idadeMeses - Math.floor(idadeMeses);
+        //console.log(restoMeses);
+
+        idadeDias = Math.floor(restoMeses * 30.5);
+        //console.log(idadeDias);
+
+        // IDADE EXATA
+        console.log('Você tem '+idadeAnosArredondado+' anos, '+idadeMesesArredondado+' meses, e '+idadeDias+' dias.');
+
+
+    </script>
+</body>
+</html>

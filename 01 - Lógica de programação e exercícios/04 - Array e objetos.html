@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 - Array e objetos</title>
+</head>
+<body>
+    <script>
+        /*
+            Array é uma variável com vários valores. Exemplo abaixo:
+        */
+
+        var nomes = [];
+        nomes[0] = "Nicchon";
+        nomes[1] = "Juliana";
+        
+        alert(nomes[0]);
+        alert(nomes[1]);
+
+
+        /*
+            Os objetos são muito parecidos com os arrays. Enquanto arrays são declarados com colchetes, objetos são declarados com chaves.
+        */
+
+        var pessoa = {};
+
+        pessoa.nome = "Nicchon";
+        pessoa.idade = 22;
+        pessoa.peso = "58kg";
+
+        // Pode ser definido de outra forma também:
+
+        var pessoa2 = {};
+
+        pessoa2['nome'] = "Nicolas";
+        pessoa2['idade'] = 23;
+        pessoa2['peso'] = "58kg";
+
+        alert("Pessoa 1 é "+pessoa.nome);
+        alert("Pessoa 2 é "+pessoa2.nome);
+
+        // Ou então:
+
+        var pessoa3 = {'nome':'Nixão','idade':30,'peso':'58kg'};
+
+        alert("Pessoa 3 nome é "+pessoa3.nome);
+        alert("Pessoa 3 idade é "+pessoa3.idade);
+        alert("Pessoa 3 peso é "+pessoa3.peso);
+
+        /*
+            Podemos criar um objeto dentro de outro objeto ou array dentro de objeto e etc
+        */
+
+        var animal = {};
+        animal.nome = [];
+
+        animal.nome[0] = "Cachorro";
+        animal.nome[1] = "Gato";
+        animal.nome[2] = "Cavalo";
+        animal.nome[3] = "Pato";
+
+        alert(animal.nome[0]);
+        alert(animal.nome[1]);
+        alert(animal.nome[2]);
+        alert(animal.nome[3]);
+
+
+
+        // Depois de ver a aula 09 - Funções, você vai entender daqui pra baixo.
+
+        // New é usado para criar um novo objeto. Ex
+
+        class Animal{
+            constructor (especie,idade,peso){
+                this.especie = especie;
+                this.idade = idade;
+                this.peso = peso;
+            }
+
+            get verDados(){
+                return "Espécie: "+this.especie+"\nIdade: "+this.idade+"\nPeso: "+this.peso;
+            }
+
+            get alertDados(){
+                alert(
+                    "Espécie: "+this.especie+
+                    "\nIdade: "+this.idade+
+                    "\nPeso: "+this.peso
+                )
+            }
+        }
+
+        // Agora vou criar alguns animais aqui
+        var Toby = new Animal('Cachorro',10,'50kg');
+        var Miau = new Animal('Gato',4,'12kg');
+
+        alert(Toby.verDados); // Vai retornar no alert os dados do Toby pq o .verDados é um return
+
+        Miau.alertDados; // Vai retornar os dados direto no alert, pq o .alertDados já é um alert
+
+
+
+
+    </script>
+</body>
+</html>

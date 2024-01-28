@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 - Google Maps API</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        h2{
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .container{
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 2%;
+        }
+
+        .mapa{
+            width: 300px;
+            max-width: 100%;
+            height: 300px;
+            max-height: 100vw;
+            margin: 20px auto;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Meu mapa:</h2>
+        <div class="mapa" id="mapa"></div>
+        <!-- /.mapa -->
+    </div>
+    <!-- /.contanier -->
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnv7y3NuVB3H7-6XXXbtFUYOsvWqI_d-86"></script>
+
+    <script>
+        window.onload = function(){
+            var map;
+
+            function initialize(){
+                var mapProp = {
+                    center: new google.map.LatLng(-27.648598,-48.577423), // Colocar a latitude e a longitude
+                    scrollWheel: false, // Serve pra quando estiver descendo a scroll no site ele descer scroll do mapa tbm. No caso não queremos, por isso coloquei false
+                    zoom: 12, // O nome já fala kk, é o zoom
+                    MapTypeId:google.maps.MapTypeId.ROADMAP // Forma como será apresentada a imagem do mapa, ROADMAP é o padrão, mas temos SATELLITE, TERRAIN e etc...
+                }
+
+                map = new google.maps.Map(document.getElementById("mapa"),mapProp); // Estou pegando pelo ID o lugar onde vai ficar o mapa juntamente com a função do mapProp que criamos
+
+                initialize();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <script>
+        /*
+            Console é um objeto o log é uma função que está dentro desse objeto.
+            Portanto, quando for chamar uma função que está dentro de um objeto eu uso o ponto entre o nome do objeto e o nome da função.
+            Exemplo abaixo:
+        */
+        console.log('Hello World!'); // Irá aparecer no console da ferramenta de desenvolvedor do navegador
+
+        // Para aparecer uma caixinha de alerta usamos a função alert. Como Abaixo:
+        alert('Olá mundo!');
+
+        /*
+            Os códigos são lidos de cima para baixo, mas para garantir que seja lido logo após o carregamento da página (todas as imagens e etc) usamos no objeto 'window' a função 'onload'.
+            Como abaixo:
+        */
+
+        window.onload = function(){
+            alert('Olá mundo!')
+        }
+
+    </script>
+</body>
+</html>

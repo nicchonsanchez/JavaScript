@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 - Laços de repetição</title>
+</head>
+<body>
+    <script>
+        /*
+            Exitem 3 laços de repetição: for, while e do
+        */
+
+        var repeticao = 1;
+
+        // While precisa de uma variável inicial
+        while(repeticao <= 10){
+            alert("Olá mundo: "+repeticao);
+            repeticao += 1; // Ou poderia usar repeticao = repeticao + 1; ou então repeticao++;
+        }
+        alert("Acabou!");
+
+        // For é mais usado para números
+        // variavel com o valor inicial; repetir enquanto oq; o que fazer na medida que repetir
+        for(i = 0; i < 10; i++){
+            alert("For: "+i);
+        }
+
+        // Do vai sempre executar a ação antes de verificar o while
+        dinheiro = 10;
+        // Vem o Lula e...
+        do{
+            dinheiro = dinheiro - 1;
+            alert('Lula roubou 1 real seu, agora você tem R$'+dinheiro);
+        } while(dinheiro != 0);
+
+
+        /*
+            Dentro dos laços de repetição pode-se usar o continue e o break.
+            O continue vai continuar a repetiçao sem execultar-la durante as vezes solicitada
+            O break irá quebrar a repetição, dando seguimento ao restante do código pós laço de repetição
+        */
+
+        for(i = 0; i < 10; i++){
+            if(i==3 || i == 6){
+                continue; // Quando o i for igual à 3 ou 6, ele não irá dar o console.log, irá continuar o loop.
+            }
+
+            console.log("Laço ex continue: "+i);
+        }
+
+        for(i = 0; i < 10; i++){
+            if(i==5){
+                break; // Quando o i for igual à 5 o loop irá quebrar e parar de execultar
+            }
+
+            console.log("Laço ex break: "+i);
+        }
+    </script>
+</body>
+</html>

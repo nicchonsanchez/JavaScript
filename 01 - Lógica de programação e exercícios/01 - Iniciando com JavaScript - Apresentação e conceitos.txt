@@ -1,0 +1,6 @@
+Foi apenas uma apresentação do que é JavaScript
+
+Variáveis
+Condições
+Funções
+Laços de repetição

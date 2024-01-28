@@ -1,0 +1,9 @@
+Tudo que for definido com let dentro das chaves não pode ser buscado por fora
+Ex:
+
+{
+	var nome = "Nick";
+	console.log(nome); // Este vai funcionar
+}
+
+console.log(nome); // Este não encontrará a variável 'nome', pois não está dentro do scope.

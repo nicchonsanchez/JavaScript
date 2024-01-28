@@ -1,0 +1,9 @@
+Agora o JavaScript possue strings quebráveis utilizando `` (crases) e é possível adicionar variáveis dentro dela sem precisar concatenar usando ${}.
+Exemplo abaixo:
+
+var nome = "Nicchon";
+
+var texto = `
+	<h1>Olá, ${nome}!
+	<p>Seja muito bem-vindo</p>
+`;

@@ -1,0 +1,11 @@
+Forma diferente de fazer uma função
+
+Tipo 1:
+
+function teste(){
+	// Conteúdo
+}
+
+const teste = ()=>{
+	// Conteúdo
+}

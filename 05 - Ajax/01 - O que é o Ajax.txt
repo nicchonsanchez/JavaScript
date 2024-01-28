@@ -1,0 +1,11 @@
+AJAX (Asynchronous JavaScript and XML) é uma técnica de desenvolvimento web que permite atualizar partes de uma página sem a necessidade de recarregar toda a página. Em vez disso, as solicitações são feitas de forma assíncrona ao servidor para recuperar ou enviar dados, geralmente em formato JSON, mas o nome "XML" permanece no nome da técnica por questões históricas.
+
+O AJAX utiliza uma combinação de tecnologias, incluindo:
+
+1. **HTML e CSS:** Para estrutura e estilo da página.
+   
+2. **JavaScript:** Para interatividade e manipulação do DOM (Document Object Model).
+
+3. **XMLHttpRequest (XHR) ou a API Fetch:** Mecanismos para fazer solicitações HTTP assíncronas ao servidor.
+
+O principal benefício do AJAX é melhorar a experiência do usuário, permitindo que partes específicas de uma página sejam atualizadas dinamicamente, sem a necessidade de recarregar toda a página. Isso resulta em páginas mais rápidas e responsivas, proporcionando uma sensação de fluidez para o usuário. O AJAX é amplamente utilizado em aplicações web modernas para criar interfaces mais dinâmicas e interativas.
