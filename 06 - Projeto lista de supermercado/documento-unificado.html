@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Lista de SuperMercado</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+header {
+    background-color: #3498db;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.form-section,
+.products-section {
+    flex: 1;
+    min-width: 300px; /* Evita que as seções se tornem muito estreitas em telas pequenas */
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+.products-section{
+    width: 410px;
+    max-width: 100%;
+}
+
+#product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+}
+
+input {
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2c3e50;
+}
+
+.product-list {
+    margin-top: 20px;
+}
+
+.lista-produto-single {
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lista-produto-single h3 {
+    flex: 2;
+    padding: 0 20px;
+    word-wrap: break-word;
+    font-size: 18px;
+}
+
+.quantidade-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.quantidade-container span {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.btn-menos,
+.btn-mais {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.quantidade-itens{
+    margin: 0 5px;
+}
+
+.btn-menos:hover,
+.btn-mais:hover {
+    background-color: #2c3e50;
+}
+
+.price-produto {
+    text-align: right;
+    font-size: 18px;
+    flex: 1;
+}
+
+.price-produto > span {
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.total-section {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.total-section h2 {
+    font-size: 20px;
+}
+
+.valor-total {
+    font-size: 24px;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+button#btn-limpar {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #e74c3c;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button#btn-limpar:hover {
+    background-color: #c0392b;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .form-section,
+    .products-section {
+        flex: 1;
+        min-width: auto;
+    }
+}
+
+.lista-cadastro input[type=text],
+.lista-cadastro input[type=number],
+#btn-cadastrar,
+.btn-limpar {
+    width: 100%; /* Faz com que os elementos ocupem 100% da largura em telas pequenas */
+}
+
+.lista-cadastro {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    gap: 10px; /* Adicionando espaçamento entre os elementos */
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>App Lista de SuperMercado</h1>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form id="product-form">
+                <label for="nome_produto">Nome do Produto:</label>
+                <input type="text" id="nome_produto" placeholder="Digite o nome do produto" required>
+
+                <label for="price">Preço:</label>
+                <input type="number" id="price" step="0.01" placeholder="0.00" title="This should be a number with up to 2 decimal places" required>
+
+                <button type="button" id="btn-cadastrar" onclick="cadastrarProduto()">Cadastrar</button>
+            </form>
+        </section>
+
+        <section class="products-section">
+            <div id="product-list" class="product-list"></div>
+
+            <div class="total-section">
+                <h2>Total:</h2>
+                <h1 id="valor-total">R$0.00</h1> <!-- Corrigindo o ID do total -->
+            </div>
+
+            <button type="button" class="btn-limpar" onclick="limparCarrinho()">Limpar</button>
+        </section>
+    </main>
+
+
+    
+<script>
+var items = [];
+
+/*
+    Adicionar itens ao carrinho
+*/
+function cadastrarProduto() {
+    var nomeProduto = document.querySelector('#nome_produto'); // Corrigindo o seletor
+    var precoProduto = document.querySelector('#price'); // Corrigindo o seletor
+
+    var busca = items.findIndex(buscando);
+
+    function buscando(item) {
+        return item.nome === nomeProduto.value;
+    }
+
+    if (busca === -1) {
+        items.push({
+            nome: nomeProduto.value,
+            valor: parseFloat(precoProduto.value),
+            quantidade: 1
+        });
+    } else {
+        items[busca].quantidade += 1;
+    }
+
+    atualizarLista();
+}
+
+/*
+    Limpar carrinho
+*/
+document.querySelector('.btn-limpar').addEventListener('click', () => {
+    items = [];
+    atualizarLista();
+});
+
+/*
+    Diminuir quantidade de itens
+*/
+function diminuirQuantidade(index) {
+    if (items[index].quantidade <= 1) {
+        items.splice(index, 1);
+    } else {
+        items[index].quantidade -= 1;
+    }
+    atualizarLista();
+}
+
+/*
+    Aumentar quantidade de itens
+*/
+function aumentarQuantidade(index) {
+    items[index].quantidade += 1;
+    atualizarLista();
+}
+
+/*
+    Atualizar itens do carrinho
+*/
+function atualizarLista() {
+    let listaProdutos = document.querySelector('#product-list'); // Corrigindo o seletor
+    let soma = 0;
+
+    listaProdutos.innerHTML = "";
+    items.forEach(function (val, index) {
+        let subtotal = val.valor * val.quantidade;
+        soma += subtotal;
+
+        listaProdutos.innerHTML += `
+            <div class="lista-produto-single">
+                <h3>${val.nome}</h3>
+                <span class="btn-menos" onclick="diminuirQuantidade(${index});">-</span>
+                <span class="quantidade-itens">${val.quantidade}</span>
+                <span class="btn-mais" onclick="aumentarQuantidade(${index});">+</span>
+                <h3 class="price-produto"><span>R$${subtotal.toFixed(2)}</span></h3>
+            </div>
+        `;
+    });
+
+    soma = soma.toFixed(2);
+    let elementoSoma = document.querySelector('#valor-total'); // Corrigindo o seletor
+    elementoSoma.innerHTML = `R$${soma}`;
+}
+</script>
+</body>
+
+</html>

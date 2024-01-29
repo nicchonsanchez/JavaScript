@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        .item{
+            border: 1px black solid;
+            border-radius: 4px;
+            width: 300px;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        span{
+            padding: 10px;
+        }
+        span.btn-remover{
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: rgb(255, 127, 127);
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <section class="formulario">
+        <input type="text" nomeitem>
+        <input type="button" onclick="adicionarItem()" value="Adicionar" adicionar>
+    </section>
+
+    <section id="carrinho">
+        <div class="item"><span class="nome-item">Item de exemplo</span><span onclick="removerItem(0)" class="btn-remover">-</span></div>
+    </section>
+
+    <script>
+        var carrinho = document.querySelector('#carrinho');
+        var lista = [];
+
+        var nomeItem = document.querySelector('[nomeitem]');
+        var btnAdd = document.querySelector('[adicionar]');
+
+        /* Adicionar item */
+        function adicionarItem(){
+            lista.push(nomeItem.value);
+            atualizarCarrinho();
+        }
+
+        /* Remover item */
+        function removerItem(index){
+            lista.splice(index,1);
+            atualizarCarrinho();
+        }
+
+        /* Atualizar carrinho */
+        function atualizarCarrinho(){
+            carrinho.innerHTML = "";
+            lista.forEach(function(value, index){
+                carrinho.innerHTML += `
+                    <div class="item"><span class="nome-item">${value}</span><span onclick="removerItem(${index})" class="btn-remover">-</span></div>
+                `;
+            })
+        }
+    </script>
+</body>
+</html>
