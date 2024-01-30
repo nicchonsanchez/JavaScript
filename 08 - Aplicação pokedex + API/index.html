@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Personalização -->
+    <title>Pokedex</title>
+    <link rel="shortcut icon" href="https://assets.pokemon.com/static2/_ui/img/favicon.ico" />
+    <meta name="theme-color" content="rgb(33, 5, 44)">
+
+    <!-- Config -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="title" content="Pedra, papel ou tesoura?">
+    <meta name="author" content="Nicchon Sanchez Pinto">
+    <meta property="og:image" itemprop="image" content="http://nicchon.com/images/icone-meta.png">
+    <meta name="description" content="Jogue agora mesmo! Pedra, papel ou tesoura?">
+    <meta name="keywords" content="Pedra papel ou tesoura,jogo,jogos,jogo para 2,jogos para 2,jogo de criança">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+        html, body{
+            height: 100%;
+            background-color: #fdfdfd;
+        }
+        a{
+            color: unset;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar-track {
+            background-color: #fff;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: #fff;
+            width: 10px;	
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #a0182d;
+            border-left: 1px solid #1e0206;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #fff;
+            border-left: 1px solid #1e0206;
+        }
+
+        header{
+            background-color: #c90c29;
+            border-bottom: 5px solid #e6bc2f;
+            padding: 30px 2%;
+        }
+        header h2{
+            font-family: 'Pacifico', cursive, Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 1.8em;
+            text-align: center;
+        }
+        section{
+            padding: 30px 2%;
+        }
+
+        #form{
+            text-align: center;
+        }
+        #form .input-single label{
+            display: block;
+            margin-bottom: 5px;
+            color: #4dad5b;
+            font-weight: 700;
+        }
+        #form input{
+            padding: 10px;
+            width: 300px;
+            max-width: 100%;
+            border-color: #4dad5b;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        #pokemons{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-bottom: 60px;
+        }
+        #pokemons .pokemon{
+            border-radius: 4px;
+            border: 3px solid #232323;
+        }
+        #pokemons .pokemon figure{
+            height: 250px;
+            width: 200px;
+            background-color: #525252;
+            position: relative;
+        }
+        #pokemons .pokemon img{
+            width: 100%;
+        }
+        #pokemons .pokemon figcaption{
+            background-color: #232323;
+            text-align: center;
+            color: white;
+            font-size: 1.6em;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer{
+            background-color: #c90c29;
+            border-top: 5px solid #e6bc2f;
+            padding: 10px 2%;
+        }
+        footer p{
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Pokedex!</h2>
+    </header>
+    <main>
+        <section id="form">
+            <div class="input-single">
+                <label for="quantidade">Quantos pokemón pegaremos?</label>
+                <input type="number" name="quantidade" id="quantidade" placeholder="Coloque aqui a quantidade de pokemóns!">
+            </div>
+            <!-- /.input-single -->
+        </section>
+        <section id="pokemons">
+            <article class="pokemon">
+                <figure>
+                    <img src="" alt="">
+                    <figcaption></figcaption>
+                </figure>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados | Criado por <a target="_blank" href="http://nicchon.com">nicchon.com</a></p>
+    </footer>
+
+    <script>
+        $('#form input').keyup(()=>{
+            pegarPokemon($('#form input').val());
+        })
+        $('#form input').click(()=>{
+            pegarPokemon($('#form input').val());
+        })
+
+        function pegarPokemon(quantidade){
+            fetch(`https://pokeapi.co/api/v2/pokemon?limit=${quantidade}`)
+                .then(response => response.json())
+                .then(allpokemon => {
+
+                    var pokemons = [];
+
+                    allpokemon.results.map((val)=>{
+                        fetch(val.url)
+                            .then(response => response.json())
+                            .then(pokemonSingle => {
+
+                                pokemons.push({
+                                    nome: val.name,
+                                    imagem: pokemonSingle.sprites.front_default
+                                });
+                                console.log(allpokemon);
+                                console.log(pokemonSingle);
+
+                                if(pokemons.length == quantidade){
+                                    // Esvaziar a sessão onde ficarão os Pokemóns
+                                    $('#pokemons').html("");
+
+                                    // Adicionar pokemóns à sessão
+                                    pokemons.map(function(val){
+                                        $('#pokemons').html($('#pokemons').html()+`
+                                        
+                                        <article class="pokemon">
+                                            <figure>
+                                                <img src="${val.imagem}" alt="${val.nome}">
+                                                <figcaption>${val.nome}</figcaption>
+                                            </figure>
+                                        </article>
+
+                                        `)
+                                    })
+                                }
+                            })
+                    })
+
+                });
+        }
+    </script>
+</body>
+</html>
